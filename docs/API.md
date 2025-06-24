@@ -26,7 +26,6 @@ curl -X POST http://localhost:8000/login/ \
 
 ```
 Development: http://localhost:8000/api/
-Production: https://your-domain.com/api/
 ```
 
 ## 📋 Endpoints
@@ -353,19 +352,6 @@ GET /api/incidents/?status=open&priority=high&search=server
 - `search`: Search in title and description
 - `ordering`: created_at, -created_at, priority, -priority
 
-### Pagination
-
-All list endpoints support pagination:
-
-```json
-{
-  "count": 100,
-  "next": "http://localhost:8000/api/incidents/?page=3",
-  "previous": "http://localhost:8000/api/incidents/?page=1",
-  "results": [...]
-}
-```
-
 ## 📝 Field Definitions
 
 ### Incident Fields
@@ -440,44 +426,6 @@ update_data = {'status': 'in_progress'}
 response = session.patch(f'http://localhost:8000/api/incidents/{incident["id"]}/', json=update_data)
 ```
 
-### JavaScript (fetch)
-
-```javascript
-// Login first to get session
-const login = async () => {
-  const response = await fetch('/login/', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'X-CSRFToken': getCookie('csrftoken')
-    },
-    body: JSON.stringify({
-      username: 'your_username',
-      password: 'your_password'
-    })
-  });
-  return response.ok;
-};
-
-// Get incidents
-const getIncidents = async () => {
-  const response = await fetch('/api/incidents/');
-  return response.json();
-};
-
-// Create incident
-const createIncident = async (incidentData) => {
-  const response = await fetch('/api/incidents/', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'X-CSRFToken': getCookie('csrftoken')
-    },
-    body: JSON.stringify(incidentData)
-  });
-  return response.json();
-};
-```
 
 ### cURL Examples
 
@@ -516,26 +464,6 @@ curl -X POST http://localhost:8000/api/incidents/1/attachments/ \
 API rate limiting will be implemented to prevent abuse:
 - 1000 requests per hour per user
 - 100 requests per minute per IP
-
-## 📚 SDK and Libraries
-
-*Coming Soon*
-
-Official SDKs will be available for:
-- Python
-- JavaScript/Node.js
-- Java
-- C#
-
-## 🔄 Webhooks
-
-*Coming Soon*
-
-Webhook support for real-time notifications:
-- Incident created
-- Status updated
-- Comment added
-- Assignment changed
 
 ---
 

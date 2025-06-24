@@ -13,7 +13,6 @@ A comprehensive Django-based incident management system with real-time event pro
 - **📎 File Attachments**: Upload and manage incident-related files
 - **💬 Comments System**: Collaborative incident resolution with comments
 - **🔍 Advanced Filtering**: Search and filter incidents by status, priority, category
-- **📱 Responsive UI**: Modern Bootstrap 5 interface
 
 ## 🏗️ Architecture
 
@@ -31,7 +30,7 @@ A comprehensive Django-based incident management system with real-time event pro
                                                    │ Events
                                                    ▼
 ┌─────────────────┐    Kafka Events     ┌─────────────────┐
-│ Kafka Consumer  │ ◄─────────────────── │ Kafka Cluster   │
+│ Kafka Consumer  │ ◄───────────────────│ Kafka Cluster   │
 │                 │                     │                 │
 │ • Notifications │                     │ • Zookeeper     │
 │ • Escalations   │                     │ • Topics        │
@@ -211,20 +210,6 @@ curl -X POST http://localhost:8000/api/incidents/ \
   -d '{"title": "New Issue", "priority": "medium"}'
 ```
 
-## 🧪 Testing
-
-```bash
-# Run all tests
-python manage.py test
-
-# Run specific app tests
-python manage.py test incidents
-
-# Run with coverage
-coverage run --source='.' manage.py test
-coverage report
-```
-
 ## 📈 Monitoring
 
 ### Kafka Monitoring
@@ -255,15 +240,11 @@ coverage report
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🆘 Support
 
 - **Issues**: Report bugs and request features via GitHub Issues
 - **Documentation**: Check the `docs/` folder for detailed guides
-- **Email**: Contact the development team at support@company.com
 
 ## 🎉 Acknowledgments
 
@@ -271,7 +252,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Apache Kafka for reliable event streaming
 - Bootstrap team for the responsive UI framework
 - All contributors who helped build this system
-
----
-
-**Made with ❤️ by the Incident Management Team** 

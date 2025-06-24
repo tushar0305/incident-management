@@ -1,6 +1,6 @@
 django==5.2.3
-django-rest-framework==3.15.2
+django-rest-framework
 psycopg2-binary==2.9.10
-kafka-python==2.0.2
+kafka-python==2.0.0
 django-cors-headers==4.5.0
 podman-compose==1.2.0

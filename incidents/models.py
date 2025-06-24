@@ -6,6 +6,8 @@ class Incident(models.Model):
     """
     Main incident model to track issues and problems
     """
+
+    id = models.AutoField(primary_key=True)
     
     # Incident priority levels
     PRIORITY_CHOICES = [
